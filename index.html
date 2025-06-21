@@ -4,21 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>1 Percent — Phase 1 Initiation</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      border: 2px solid #fff;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 15px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #fff;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Welcome, Candidate</h1>
     <p>Enter the access code to proceed to Phase 2.</p>
-
-    <input type="text" id="userInput" placeholder="Access code..." />
+    <input id="userInput" placeholder="Access code..." autofocus />
+    <br />
     <button id="submitBtn">ENTER</button>
+
     <!-- Clue 1: rot13(Jrypbzr gb) -->
-   <!-- Clue 2: Solve ∫(x·e^x) dx from x = 0 to 1 -->
-   <!-- Hidden clue in source -->
+    <!-- Clue 2: Solve ∫(x·e^x) dx from x = 0 to 1 -->
     <!-- Clue 3: Hidden image URL: https://i.postimg.cc/k5Ncwnkm/V.jpg -->
   </div>
 
-  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("submitBtn");
+      const input = document.getElementById("userInput");
+
+      btn.addEventListener("click", () => {
+        const value = input.value.replace(/\s+/g, '').toLowerCase();
+        const correct = "welcometo1%";
+
+        if (value === correct) {
+          window.location.href = "result.html?status=success";
+        } else {
+          window.location.href = "result.html?status=failure";
+        }
+      });
+
+      input.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+          btn.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
