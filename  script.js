@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedback = document.getElementById("feedback");
 
   btn.addEventListener("click", () => {
-    const value = input.value.trim();
-    const correct = "Welcome to1%";
+    // Remove all spaces before checking
+    const value = input.value.replace(/\s+/g, '');
+    const correct = "Welcometo1%"; // password without spaces
 
     if (value === correct) {
       feedback.innerHTML = "🎉 Congratulations. You have successfully completed Phase 1. Instructions for Phase 2 will follow shortly.";
