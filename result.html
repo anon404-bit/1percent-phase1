@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1 Percent — Phase 1 Result</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="result-container">
+    <h1 id="result-message">Processing...</h1>
+  </div>
+
+  <script>
+    // Get query parameter "status" from URL
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get("status");
+
+    const messageEl = document.getElementById("result-message");
+
+    if (status === "success") {
+      messageEl.textContent = "🎉 Congratulations! You have successfully completed Phase 1. Instructions for Phase 2 will follow shortly.";
+      messageEl.style.color = "white";
+    } else {
+      messageEl.textContent = "❌ Access Denied. Decode better and try again.";
+      messageEl.style.color = "red";
+    }
+  </script>
+</body>
+</html>
