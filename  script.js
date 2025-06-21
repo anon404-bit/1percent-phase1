@@ -5,8 +5,8 @@ function checkAnswer() {
   const correctAnswer = "Welcome to1%";
 
   if (input === correctAnswer) {
-    feedback.innerHTML = "✅ Access Granted. You may proceed to Phase 2.";
-    feedback.style.color = "lime";
+    feedback.innerHTML = "🎉 Congratulations. You have successfully completed Phase 1. Instructions for Phase 2 will follow shortly.";
+    feedback.style.color = "white";
   } else {
     feedback.innerHTML = "❌ Access Denied. Decode better.";
     feedback.style.color = "red";
